@@ -365,8 +365,11 @@ class Subreddit extends SubredditRef with RedditBaseInitializedMixin {
   /// The URL for the [Subreddit]'s header image, if it exists.
   Uri? get headerImage => GetterUtils.uriOrNull(data!['header_img']);
 
-  /// The URL for the [Subreddit]'s icon, if it exists.
+  /// The URL for the [Subreddit]'s mobile icon, if it exists. This type of icon is mostly unused now. If not avaible, see [communityIcon]
   Uri? get iconImage => GetterUtils.uriOrNull(data!['icon_img']);
+  
+  /// The URL for the [Subreddit]'s icon. Should be the main you should check before using [iconImage]
+  Uri? get communityIcon => GetterUtils.uriOrNull(data!['community_icon']);
 
   /// Whether the currently authenticated Redditor is banned from the [Subreddit].
   bool? get isBanned => data!['user_is_banned'];
