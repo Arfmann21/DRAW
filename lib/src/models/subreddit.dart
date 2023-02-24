@@ -369,7 +369,7 @@ class Subreddit extends SubredditRef with RedditBaseInitializedMixin {
   Uri? get iconImage => GetterUtils.uriOrNull(data!['icon_img']);
   
   /// The URL for the [Subreddit]'s icon. Should be the main you should check before using [iconImage]
-  Uri? get communityIcon => GetterUtils.uriOrNull(data!['community_icon']);
+  Uri? get communityIcon => GetterUtils.uriOrNull(data!['community_icon'].toString().substring(0, data!['community_icon'].toString().indexOf("?width")));
 
   /// Whether the currently authenticated Redditor is banned from the [Subreddit].
   bool? get isBanned => data!['user_is_banned'];
